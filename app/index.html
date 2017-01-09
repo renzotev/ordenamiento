@@ -8,5 +8,23 @@
   </head>
   <body></body>
 </html>
-<div class="wrapper">555</div>
+<main class="container">
+  <header class="header text-center">
+    <h1 class="header__title">Ordenamiento de serie</h1>
+  </header>
+  <div class="text-center">
+    <form class="main-form" id="form" autocomplete="off">
+      <input class="main-form__input" id="input-num" type="text" placeholder="Digite un número">
+      <label class="error"></label>
+      <button class="button-clear main-form__button" type="submit"><i class="icon-plus"></i></button>
+    </form>
+  </div>
+  <div class="content">
+    <div class="sort">
+      <button class="button-clear sort__button" id="sort">Ordenar<i class="icon-sort-numeric-asc"></i></button>
+    </div>
+    <div id="result"></div>
+  </div>
+</main>
+<footer class="footer text-center">Realizado por:<strong> Renzo Telenta </strong><a href="mailto:renzotelenta@gmail.com" target="_blank">renzotelenta@gmail.com</a></footer>
 <script src="js/app.js"></script>

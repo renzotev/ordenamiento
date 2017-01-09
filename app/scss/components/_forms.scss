@@ -1,0 +1,74 @@
+.main-form {
+    border: 2px solid $base-border-color;
+    color: $green;
+    background: transparent;
+    border-radius: $base-border-radius;
+    display: inline-block;
+    margin: $gutter 0;
+    width: 100%;
+    max-width: 200px;
+    position: relative;
+    padding-right: 35px;
+    background: white;
+    position: relative;
+
+    &__input {
+        border: 0 none;
+        background: none;
+        outline: 0;
+        font-family: $base-font-family;
+        padding: $gutter/2;
+        color: $gray-dark;
+    }
+
+    &__button {
+        color: white;
+        font-size: 10px;
+        padding: $gutter/2;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        max-width: 35px;
+        line-height: 18px;
+        background: $green;
+        transition: background .5s;
+        border-radius: 0 $base-border-radius $base-border-radius 0;
+
+        &:hover,
+        &:active {
+            background: darken($green, 3%);
+        }
+
+        .error & {
+            background: $red !important;
+        }
+    }
+
+    .error {
+        position: absolute;
+        left: 0;
+        bottom: $gutter*-1;
+    }
+}
+
+.error {
+    @at-root label#{&} {
+        color: $red;
+        font-weight: 700;
+        font-size: 12px;
+        opacity: 0;
+        transform: rotateY(-90deg);
+        transition: all 0.5s cubic-bezier(.36,-0.64,.34,1.76);
+        white-space: nowrap;
+
+        &--active {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @at-root form#{&} {
+        border-color: $red;
+    }
+}
