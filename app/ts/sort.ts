@@ -1,3 +1,5 @@
+// Clase encargada de reordenar nuestro array y el DOM
+
 class Sort
 {
     private items: number[];
@@ -5,12 +7,14 @@ class Sort
     private itemClass: string;
     private positions: any[];
 
+    // Obtenemos la clase css de nuestros números
     constructor(itemSelector: string) {
         this.items = [];
         this.positions = [];
         this.itemClass = itemSelector;
     }
 
+    //verificamos si existe el elemento que deseamos agregar
     public isDuplicate(n: number): boolean {
         let result: boolean = this.getItems().some( (item) => {
             return item === n;
@@ -19,6 +23,7 @@ class Sort
         return result;
     }
 
+    //Funcion encargada de hacer las llamadas al reordenamiento
     public asc(): void {
         this.getPositions();
         this._items = this.items.slice();
@@ -26,6 +31,7 @@ class Sort
         this.animate();
     }
 
+    //Funcion encargada de animar el reordenamiento
     public animate(): void {
         let elem: any = document.getElementsByClassName(this.itemClass);
 
@@ -38,6 +44,7 @@ class Sort
         }, 700);
     }
 
+    //Callback de la funcion animate() esta funcion se encarga de reordenar el dom despues de la animación
     private sortDOM():void {
         let container = <HTMLElement>document.getElementById("result");
 
@@ -53,6 +60,7 @@ class Sort
         }
     };
 
+    // Obtenemos los offset de los elementos
     private getPositions(): void {
         let elem: any = document.getElementsByClassName(this.itemClass);
 
@@ -65,6 +73,7 @@ class Sort
         }
     }
 
+    //Se encarga de mover un elemento a una posición especifica
     private setPosition(before: number, after: number): void {
         let elem: any = document.getElementsByClassName(this.itemClass);
 
@@ -78,6 +87,9 @@ class Sort
         }, 100);
     }
 
+
+    /* Las funciones mergeSort y merge se encargan de reordenar nuestro array
+    usando el algoritomo de Ordenamiento por mezcla */
     private mergeSort(arr: number[]): number[] {
         var len = arr.length;
 
@@ -109,13 +121,14 @@ class Sort
         return result.concat(left.slice(l)).concat(right.slice(r));
     }
 
-
+    //Agregamos un elemento
     public addItem(n: number): void {
         if (!this.isDuplicate(n)) {
             this.items.push(n);
         }
     }
 
+    //Obtenemos el array con todos los elementos
     public getItems(): number[] {
         return this.items;
     }

@@ -1,5 +1,6 @@
 /// <reference path="./Sort.ts" />
 
+//Interface encargada de validar los parametros necesarios para nuestra clase
 interface formOptions
 {
     inputID: string;
@@ -8,6 +9,7 @@ interface formOptions
     sortID: string;
 }
 
+//Clase con la logica principal de nuestra aplicación
 class Form
 {
     private form: HTMLElement;
@@ -17,6 +19,7 @@ class Form
     private itemClass: string;
     private sortButton: HTMLElement;
 
+    //Obtenemos los selectores necesarios
     constructor(options: formOptions) {
         this.setForm(options.inputID);
         this.setInput(options.inputID);
@@ -25,11 +28,13 @@ class Form
         this.setSortButton(options.sortID);
     }
 
+    //Iniciar nuestros eventos y crear nuestro objeto a reordenar
     public init() {
         this.createSort();
         this.trigger();
     }
 
+    // Setters y Getters encargados de las instacias al DOM
     private setForm(id: string): void {
         this.form = <HTMLElement>document.getElementById(id).parentElement;
     }
@@ -70,6 +75,8 @@ class Form
         return this.sortButton;
     }
 
+
+    //Eventos principales - Submit del formulario y Clic al botón de reordenar
     private trigger(): void {
         this.getForm().addEventListener('submit', (e: Event) => {
             let target = <HTMLElement>e.target;
@@ -84,7 +91,7 @@ class Form
 
                 this.getInput().value = "";
 
-                if (!this.sort.isDuplicate(value)) {
+                if (!this.sort.isDuplicate(value) && !isNaN(value)) {
                     this.sort.addItem(value);
                     this.getResult().appendChild(item);
 
