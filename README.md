@@ -1,5 +1,9 @@
-Ordenamiento de serie
+Ordenador de serie
 =====================
+
+Proyecto
+-------------------
+[Enlace al demo](https://renzotev.github.io/ordenamiento/app/index.html)
 
 Instalación(DESARROLLO)
 -----------------------
@@ -36,7 +40,7 @@ Estructura de carpetas
 ----------------------
 
 ```scss
-ordenamiento de serie/
+ordenador de serie/
 |- app/
 |  |- css/
 |  |  |- style.css (CSS compilado)
