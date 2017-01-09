@@ -63,6 +63,7 @@ class Sort
     // Obtenemos los offset de los elementos
     private getPositions(): void {
         let elem: any = document.getElementsByClassName(this.itemClass);
+        this.positions = []
 
         for(let i: number = 0; i < elem.length; i++){
 
