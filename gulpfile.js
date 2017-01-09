@@ -28,9 +28,9 @@ gulp.task('scripts', () => {
         .pipe($.sourcemaps.init())
         .pipe($.typescript({
             noImplicitAny: true,
-            out: 'app.js'
+            out: "app.js"
         }))
-        .pipe($.uglify()) 
+        //.pipe($.uglify())
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest('app/js'));
 });

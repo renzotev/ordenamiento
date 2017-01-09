@@ -1,0 +1,16 @@
+.container {
+    flex: 1;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.content {
+    background: white;
+    margin: $gutter;
+    padding: $gutter;
+    border: 1px solid lighten($gray, 20%);
+    border-bottom: 2px solid lighten($gray, 20%);
+    position: relative;
+    min-height: 300px;
+}

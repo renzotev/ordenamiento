@@ -1,0 +1,49 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    @extend html;
+    background: $base-bgcolor;
+    color: $base-font-color;
+    display: flex;
+    flex-direction: column;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    height: auto;
+    min-height: 100%;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+        color: $link-hover-color;
+        text-decoration: underline;
+    }
+}
+
+* {
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+        @extend *;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.button-clear {
+    border: 0 none;
+    background: none;
+    outline: 0;
+    cursor: pointer;
+}

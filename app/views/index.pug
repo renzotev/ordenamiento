@@ -1,3 +1,23 @@
-include inc/header
-.wrapper 555
+include inc/head
+
+main.container
+    header.header.text-center
+        h1.header__title Ordenamiento de serie
+
+    .text-center
+        form#form.main-form(autocomplete="off")
+            input#input-num.main-form__input(type="text", placeholder="Digite un número")
+            label.error
+            button.button-clear.main-form__button(type="submit")
+                i.icon-plus
+
+    .content
+        .sort
+            button#sort.button-clear.sort__button
+                | Ordenar
+                i.icon-sort-numeric-asc
+
+        #result
+
+
 include inc/footer
